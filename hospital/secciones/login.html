@@ -1,0 +1,11 @@
+<h2>Login</h2>
+<form method="post" action="#">
+  <label>Usuario</label>
+  <input type="usuario" name="usuario" /><br />
+  <label>Password</label>
+  <input type="password" name="password" /><br /><br />
+  <input type="submit" name="login" value="login" />
+  <h4>
+    <?= $mensaje ?? '' ?>
+  </h4>
+</form>

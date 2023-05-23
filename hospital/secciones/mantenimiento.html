@@ -1,0 +1,60 @@
+<?php
+
+	include 'servicios/consultapacientes.php';
+	include 'servicios/consultapaciente.php';
+	include 'servicios/modificarpaciente.php';
+	include 'servicios/bajapaciente.php';
+	?>
+<h2>Mantenimiento paciente</h2>
+<form id="formulario" method="post" action="#">
+  <input type="hidden" id="idpaciente" name="idpaciente" />
+  <label>NIF:</label>
+  <input
+    type="text"
+    id="nif"
+    name="nif"
+    value="<?= $nif ?? $arrayPaciente['nif'] ?? '' ?>"
+  />
+  <br /><br />
+  <label>Nombre:</label>
+  <input
+    type="text"
+    id="nombre"
+    name="nombre"
+    value="<?= $nombre ?? $arrayPaciente['Nombre'] ?? ''  ?>"
+  />
+  <br /><br />
+  <label>Apellidos:</label>
+  <input
+    type="text"
+    id="apellidos"
+    name="apellidos"
+    value="<?= $apellido ?? $arrayPaciente['Apellidos'] ?? ''  ?>"
+  />
+  <br /><br />
+  <label>Fecha Ingreso:</label>
+  <input
+    type="date"
+    id="fechaingreso"
+    name="fechaingreso"
+    value="<?= $fechaIngreso ?? $arrayPaciente['FechaIngreso'] ?? ''  ?>"
+  />
+  <br /><br />
+  <label>Fecha Alta Médica:</label>
+  <input
+    type="date"
+    id="fechaalta"
+    name="fechaalta"
+    value="<?=  $fechaAlta ?? $arrayPaciente['FechaAlta'] ?? ''  ?>"
+  />
+  <br /><br />
+  <input
+    type="submit"
+    id="modificacion"
+    name="modificacion"
+    value="Modificar paciente"
+  />
+  <input type="submit" id="baja" name="baja" value="Baja paciente" />
+  <br /><br />
+  <h4><?= $mensaje ?? '' ?></h4>
+</form>

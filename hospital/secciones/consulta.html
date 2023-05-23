@@ -1,0 +1,45 @@
+<?php
+	require('servicios/consultapacientes.php')
+?>
+<h2>Consulta de pacientes</h2>
+<form method="post" action="?consulta">
+  <?= $label ?>
+  <?= $select ?>
+  <?= $option ?>
+  <?= $endSelect ?>
+  <br />
+  <label>Buscador por apellido</label>
+  <input name="buscaapellido" onkeyup="this.form.submit()" />
+</form>
+
+<br />
+<table id="pacientes">
+  <tr>
+    <td>NIF</td>
+    <td>Nombre</td>
+    <td>Apellidos</td>
+    <td></td>
+  </tr>
+  <?php foreach ($arrayPacientes as $key =>
+  $rows) : ?>
+  <tr>
+    <td><?= $rows['nif'] ?></td>
+    <td><?= $rows['nombre'] ?></td>
+    <td><?= $rows['apellidos'] ?></td>
+    <td>
+      <form method="post" action="?mantenimiento">
+        <input type="submit" name="detalle" value="Detalle de paciente" />
+        <input
+          type="hidden"
+          name="idpaciente"
+          value="<?= $rows['idpaciente'] ?? '' ?>"
+        />
+      </form>
+    </td>
+  </tr>
+  <?php endforeach; ?>
+</table>
+<br /><br />
+<?= $paginacion ?>
+<h4></h4>
+<script type = "text/javascript" src = 'js/consultapacientes.js'> </script>
